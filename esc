@@ -1,0 +1,37 @@
+[33mcommit ac1acdab5012c3a75565a9ce59a365af7f08b809[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 18:51:37 2026 -0300
+
+    4° commit adicionado readme.md
+
+[33mcommit ddfc34763f50ab1b663a7f5c0dbe20b2724e45f3[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 18:49:10 2026 -0300
+
+    ci: configura Pages sem enablement (exige admin)
+
+[33mcommit a723219ad5edff2a05f03523456163b83e3bf0e2[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 18:45:19 2026 -0300
+
+    mudança nos personagens e adicionado tutorial de como adicionar personagem
+
+[33mcommit 4f1a92a530f98ce02f7bfcda7909d7c556823606[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 18:29:15 2026 -0300
+
+    ci: deploy automatico no GitHub Pages
+    
+    Export estatico (output: export) para hospedar no GitHub Pages, imagens das fichas copiadas para public/fichas no prebuild e workflow do Actions que publica a pasta out/ a cada push na master.
+
+[33mcommit 1cdc63c8c5d65e2275c9c5df7432d5591389a5dc[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 17:59:26 2026 -0300
+
+    adicionada varias micro interações
+
+[33mcommit aa9b8da67bdea3aef4ac9a995fdd9dbd99eaa9ad[m
+Author: dev_leo <146463507+lxzzt@users.noreply.github.com>
+Date:   Mon Nov 16 17:34:12 2026 -0300
+
+    firt commit
