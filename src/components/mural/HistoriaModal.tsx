@@ -9,27 +9,26 @@ import { BotaoSplit } from "./BotaoSplit";
 const GLITCH = "█▓▒░<>/\\|#$%&01";
 
 type Props = {
-  personagens: Personagem[];
-  indice: number;
-  onIr: (indice: number) => void;
+  personagem: Personagem;
   onFechar: () => void;
 };
 
-export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
-  const personagem = personagens[indice];
-  const [abaEstado, setAbaEstado] = useState({ slug: personagem.slug, aba: 0 });
+export function HistoriaModal({ personagem, onFechar }: Props) {
+  const [aba, setAba] = useState(0);
+  const [decifrando, setDecifrando] = useState(true);
   const overlayRef = useRef<HTMLDivElement>(null);
   const painelRef = useRef<HTMLDivElement>(null);
   const corpoRef = useRef<HTMLDivElement>(null);
   const fecharRef = useRef<HTMLButtonElement>(null);
 
-  // ao trocar de personagem, volta para a primeira aba sem efeito de estado
-  const aba = abaEstado.slug === personagem.slug ? abaEstado.aba : 0;
-  const setAba = (novo: number) => setAbaEstado({ slug: personagem.slug, aba: novo });
+  const totalAbas = personagem.capitulos.length;
 
-  const navegar = useCallback(
-    (direcao: number) => onIr((indice + direcao + personagens.length) % personagens.length),
-    [indice, onIr, personagens.length],
+  const irAba = useCallback(
+    (direcao: number) => {
+      if (totalAbas < 2) return;
+      setAba((atual) => (atual + direcao + totalAbas) % totalAbas);
+    },
+    [totalAbas],
   );
 
   // entrada, trava de scroll, foco e restauração
@@ -61,7 +60,7 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
     };
   }, []);
 
-  // teclado
+  // teclado: Esc fecha, setas trocam de capítulo
   useEffect(() => {
     const aoTeclar = (evento: KeyboardEvent) => {
       if (evento.key === "Escape") {
@@ -70,11 +69,11 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
       }
       if (evento.key === "ArrowRight") {
         evento.preventDefault();
-        navegar(1);
+        irAba(1);
       }
       if (evento.key === "ArrowLeft") {
         evento.preventDefault();
-        navegar(-1);
+        irAba(-1);
       }
       if (evento.key === "Tab") {
         const focaveis = painelRef.current?.querySelectorAll<HTMLElement>(
@@ -95,20 +94,29 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
 
     window.addEventListener("keydown", aoTeclar);
     return () => window.removeEventListener("keydown", aoTeclar);
-  }, [navegar, onFechar]);
+  }, [irAba, onFechar]);
 
-  // efeito de descriptografar
+  // efeito de descriptografar (avisa quando termina)
   useLayoutEffect(() => {
     const corpo = corpoRef.current;
-    if (!corpo || semMovimento()) return;
+    const alvos = corpo ? corpo.querySelectorAll<HTMLElement>("[data-decrypt]") : [];
 
-    const alvos = corpo.querySelectorAll<HTMLElement>("[data-decrypt]");
+    if (!corpo || semMovimento() || alvos.length === 0) {
+      setDecifrando(false);
+      return;
+    }
+
+    setDecifrando(true);
+
+    const duracoes: number[] = [];
     const tweens = Array.from(alvos).map((el) => {
       const original = el.dataset.texto ?? el.textContent ?? "";
       const estado = { p: 0 };
+      const duracao = Math.min(1.6, 0.5 + original.length / 450);
+      duracoes.push(duracao);
       return gsap.to(estado, {
         p: 1,
-        duration: Math.min(1.6, 0.5 + original.length / 450),
+        duration: duracao,
         ease: "power1.in",
         onUpdate: () => {
           const n = Math.floor(estado.p * original.length);
@@ -124,11 +132,19 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
       });
     });
 
-    return () => tweens.forEach((tween) => tween.kill());
+    // o status vira "descriptografado" quando o texto mais longo termina
+    const fim = gsap.delayedCall(Math.max(...duracoes) + 0.05, () => {
+      setDecifrando(false);
+    });
+
+    return () => {
+      tweens.forEach((tween) => tween.kill());
+      fim.kill();
+    };
   }, [personagem.slug, aba]);
 
   const capitulo = personagem.capitulos[aba];
-  const temHistoria = personagem.capitulos.length > 0;
+  const temHistoria = totalAbas > 0;
 
   return (
     <div
@@ -147,7 +163,27 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
       >
         <header className="m-ph">
           <div>
-            <p className="m-eyebrow">{`// arquivo ${personagem.id} · descriptografando`}</p>
+            <p className="m-eyebrow m-arq">
+              <span>{`// arquivo ${personagem.id} · `}</span>
+              <span
+                className="m-desc"
+                data-estado={decifrando ? "cifra" : "pronto"}
+                style={{ color: decifrando ? "#fcee0a" : "#3ee08a" }}
+              >
+                {decifrando ? (
+                  <>
+                    descriptografando
+                    <span className="m-pontos" aria-hidden="true">
+                      <i className="m-ponto m-ponto-1">.</i>
+                      <i className="m-ponto m-ponto-2">.</i>
+                      <i className="m-ponto m-ponto-3">.</i>
+                    </span>
+                  </>
+                ) : (
+                  "descriptografado"
+                )}
+              </span>
+            </p>
             <h3 id="titulo-historia" className="m-mn">
               {personagem.nome}
             </h3>
@@ -222,15 +258,17 @@ export function HistoriaModal({ personagens, indice, onIr, onFechar }: Props) {
         </div>
 
         <footer className="m-mfoot">
-          <span>Esc fecha · ← → troca de personagem</span>
-          <div className="m-nav">
-            <button type="button" className="m-b2" onClick={() => navegar(-1)}>
-              <BotaoSplit texto="‹ Anterior" />
-            </button>
-            <button type="button" className="m-b2" onClick={() => navegar(1)}>
-              <BotaoSplit texto="Próximo ›" />
-            </button>
-          </div>
+          <span>{totalAbas > 1 ? "Esc fecha · ← → troca de capítulo" : "Esc fecha"}</span>
+          {totalAbas > 1 && (
+            <div className="m-nav">
+              <button type="button" className="m-b2" onClick={() => irAba(-1)}>
+                <BotaoSplit texto="‹ Anterior" />
+              </button>
+              <button type="button" className="m-b2" onClick={() => irAba(1)}>
+                <BotaoSplit texto="Próximo ›" />
+              </button>
+            </div>
+          )}
         </footer>
       </div>
     </div>

@@ -9,7 +9,7 @@ const CHAVES: Record<string, string[]> = {
   Reflexos: ["reflex"],
   "Habilidade Técnica": ["tecnic", "technical"],
   Inteligência: ["intelig"],
-  "Moral / Sangue Frio": ["moral", "sangue", "cool", "frieza"],
+  Moral: ["moral", "sangue", "cool", "frieza"],
 };
 
 const semAcento = (valor: string) =>

@@ -7,35 +7,41 @@ export const semMovimento = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-export const podeHover = () =>
-  typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
-
 /**
- * Inclinação 3D suave acompanhando o mouse (só em dispositivos com hover).
- * Ângulo e perspectiva moderados para o texto não ficar lavado pelo raster.
+ * Inclinação 3D suave acompanhando o mouse. O filtro é pelo tipo de ponteiro
+ * do evento (mouse), não por media query, para funcionar mesmo quando o
+ * navegador reporta `hover: none` (notebooks com tela sensível ao toque).
+ * Ângulo e perspectiva com presença: até 8° nos dois eixos, perspectiva 800
+ * e o card sobe um pouco no eixo Z ao entrar.
  */
 export function useTilt(ref: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const el = ref.current;
-    if (!el || semMovimento() || !podeHover()) return;
+    if (!el || semMovimento()) return;
 
-    gsap.set(el, { transformPerspective: 1400, transformOrigin: "50% 50%" });
+    gsap.set(el, { transformPerspective: 800, transformOrigin: "50% 50%" });
     const rx = gsap.quickTo(el, "rotationX", { duration: 0.4, ease: "power2.out" });
     const ry = gsap.quickTo(el, "rotationY", { duration: 0.4, ease: "power2.out" });
+    const z = gsap.quickTo(el, "z", { duration: 0.4, ease: "power2.out" });
 
     const mover = (evento: PointerEvent) => {
+      if (evento.pointerType && evento.pointerType !== "mouse") return;
       const r = el.getBoundingClientRect();
-      ry(((evento.clientX - r.left) / r.width - 0.5) * 7);
-      rx(-((evento.clientY - r.top) / r.height - 0.5) * 7);
+      ry(((evento.clientX - r.left) / r.width - 0.5) * 16);
+      rx(-((evento.clientY - r.top) / r.height - 0.5) * 16);
     };
+    const entrar = () => z(24);
     const sair = () => {
       rx(0);
       ry(0);
+      z(0);
     };
 
+    el.addEventListener("pointerenter", entrar);
     el.addEventListener("pointermove", mover);
     el.addEventListener("pointerleave", sair);
     return () => {
+      el.removeEventListener("pointerenter", entrar);
       el.removeEventListener("pointermove", mover);
       el.removeEventListener("pointerleave", sair);
       gsap.killTweensOf(el);

@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mural de personagens · AFTERLIFE//RP",
+  title: ".Gov de Night City · AFTERLIFE//RP",
   description:
-    "Cada ficha é um dossiê fechado. O mural de personagens do servidor Afterlife Roleplay, roleplay de Cyberpunk 2077 em português.",
+    "Cada ficha é um dossiê fechado. O mural de personagens do servidor Afterlife Roleplay (Ainda não oficial) é um espaço para exibir perfis de personagens, suas habilidades e atributos, permitindo que os jogadores explorem o universo da cidade e conheçam melhor os personagens que habitam na cidade.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

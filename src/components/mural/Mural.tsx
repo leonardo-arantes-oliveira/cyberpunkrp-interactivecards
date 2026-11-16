@@ -60,8 +60,7 @@ export function Mural({ personagens }: { personagens: Personagem[] }) {
     [filtrados],
   );
 
-  const listaAberta = filtrados.length ? filtrados : ordenados;
-  const indiceAberto = aberto ? listaAberta.findIndex((p) => p.slug === aberto) : -1;
+  const personagemAberto = aberto ? ordenados.find((p) => p.slug === aberto) : undefined;
 
   // entrada única da grade
   useEffect(() => {
@@ -213,13 +212,8 @@ export function Mural({ personagens }: { personagens: Personagem[] }) {
         <p>Fichas lidas de src/data/personagens · Afterlife Roleplay</p>
       </footer>
 
-      {indiceAberto >= 0 && (
-        <HistoriaModal
-          personagens={listaAberta}
-          indice={indiceAberto}
-          onIr={(novo) => setAberto(listaAberta[novo].slug)}
-          onFechar={() => setAberto(null)}
-        />
+      {personagemAberto && (
+        <HistoriaModal personagem={personagemAberto} onFechar={() => setAberto(null)} />
       )}
     </div>
   );

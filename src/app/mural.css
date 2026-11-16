@@ -46,6 +46,71 @@
   text-transform: uppercase;
 }
 
+.m-desc {
+  transition: color 0.25s ease;
+}
+
+.m-desc[data-estado="cifra"] {
+  color: var(--color-yellow);
+}
+
+.m-desc[data-estado="pronto"] {
+  color: var(--color-green);
+}
+
+.m-pontos {
+  display: inline;
+}
+
+.m-ponto {
+  display: inline;
+  font-style: normal;
+  opacity: 0;
+  animation: m-ponto-1 1.2s linear infinite both;
+}
+
+.m-ponto-2 {
+  animation-name: m-ponto-2;
+}
+
+.m-ponto-3 {
+  animation-name: m-ponto-3;
+}
+
+@keyframes m-ponto-1 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes m-ponto-2 {
+  0%,
+  30% {
+    opacity: 0;
+  }
+
+  31%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes m-ponto-3 {
+  0%,
+  60% {
+    opacity: 0;
+  }
+
+  61%,
+  100% {
+    opacity: 1;
+  }
+}
+
 .m-title {
   margin: 0.3em 0 0.22em;
   color: var(--color-text);
@@ -446,6 +511,54 @@
   background: #000;
   clip-path: var(--m-cp-gal);
   touch-action: pan-y;
+}
+
+.m-gal-stack {
+  position: absolute;
+  inset: 0;
+}
+
+.m-gal.is-flip .m-gal-stack {
+  will-change: transform, filter;
+}
+
+/* linhas de varredura e faixa branca: dão a leitura de sinal de TV analógica */
+.m-gal-lines,
+.m-gal-band {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.m-gal-lines {
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.16) 0 1px,
+    transparent 1px 3px
+  );
+  opacity: 0;
+}
+
+.m-gal-band {
+  inset: auto 0 auto;
+  top: -18%;
+  height: 18%;
+  background: linear-gradient(
+    transparent,
+    rgba(255, 255, 255, 0.42) 45%,
+    rgba(255, 255, 255, 0.42) 55%,
+    transparent
+  );
+}
+
+/* durante o flip a troca de foto não pode fazer crossfade lento */
+.m-gal.is-flip .m-gal-img {
+  transition:
+    opacity 0.08s linear,
+    filter 0.3s ease,
+    transform 0.4s ease;
 }
 
 .m-gal-img {

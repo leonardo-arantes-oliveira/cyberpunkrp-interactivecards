@@ -12,7 +12,7 @@
     { "rotulo": "Reflexos", "valor": 68 },
     { "rotulo": "Habilidade Técnica", "valor": 74 },
     { "rotulo": "Inteligência", "valor": 95 },
-    { "rotulo": "Moral / Sangue Frio", "valor": 57 }
+    { "rotulo": "Moral", "valor": 57 }
   ],
   "meta": [
     {

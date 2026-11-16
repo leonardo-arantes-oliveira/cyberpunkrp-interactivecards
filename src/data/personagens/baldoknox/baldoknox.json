@@ -3,8 +3,8 @@
   "nome": "Baldwin Knox",
   "alias": "ex-Armitage",
   "origem": "Marginal",
-  "habilidades": ["Corpo", "Moral / Sangue Frio"],
-  "builds": ["Tank / Solo Brutal"],
+  "habilidades": ["Corpo", "Moral"],
+  "builds": ["Tank"],
   "matiz": 0,
   "resumo": "Mercenário fanfarrão, de lábia afiada e confiança absurda. Só não negocia a própria consciência.",
   "stats": [
@@ -12,7 +12,7 @@
     { "rotulo": "Reflexos", "valor": 58 },
     { "rotulo": "Habilidade Técnica", "valor": 44 },
     { "rotulo": "Inteligência", "valor": 61 },
-    { "rotulo": "Moral / Sangue Frio", "valor": 92 }
+    { "rotulo": "Moral", "valor": 92 }
   ],
   "meta": [
     {

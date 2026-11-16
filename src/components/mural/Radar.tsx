@@ -8,7 +8,6 @@ const ANEIS = [20, 40, 60, 80, 100];
 /** Nomes curtos e quebra em duas linhas para caberem ao redor do pentágono. */
 const ROTULOS: Record<string, string[]> = {
   "Habilidade Técnica": ["Técnica"],
-  "Moral / Sangue Frio": ["Sangue", "Frio"],
 };
 
 const LINHA = 15;

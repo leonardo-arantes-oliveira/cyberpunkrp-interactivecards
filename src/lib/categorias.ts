@@ -13,14 +13,14 @@ export const HABILIDADES = [
   "Reflexos",
   "Habilidade Técnica",
   "Inteligência",
-  "Moral / Sangue Frio",
+  "Moral",
 ] as const;
 
 /** Arquétipos de build definidos pelo sistema operacional e pelas armas. */
 export const BUILDS = [
   "Netrunner",
   "Ninja / Samurai",
-  "Tank / Solo Brutal",
+  "Tank",
   "Velocista com Sandevistan",
   "Pistoleiro / Atirador Furtivo",
 ] as const;

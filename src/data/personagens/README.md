@@ -26,8 +26,8 @@ Regras rápidas:
   "nome": "Baldwin Knox",
   "alias": "ex-Armitage",
   "origem": "Marginal",
-  "habilidades": ["Corpo", "Moral / Sangue Frio"],
-  "builds": ["Tank / Solo Brutal"],
+  "habilidades": ["Corpo", "Moral"],
+  "builds": ["Tank"],
   "matiz": 0,
   "resumo": "Mercenário fanfarrão, de lábia afiada e confiança absurda.",
   "stats": [
@@ -85,15 +85,15 @@ Um personagem tem **uma origem**, **várias habilidades** e **várias builds**. 
 
 **Origem:** `Nômade`, `Marginal`, `Corp` (de corporativo).
 
-**Habilidades** (os cinco atributos): `Corpo`, `Reflexos`, `Habilidade Técnica`, `Inteligência`, `Moral / Sangue Frio`.
+**Habilidades** (os cinco atributos): `Corpo`, `Reflexos`, `Habilidade Técnica`, `Inteligência`, `Moral`.
 
-**Builds:** `Netrunner`, `Ninja / Samurai`, `Tank / Solo Brutal`, `Velocista com Sandevistan`, `Pistoleiro / Atirador Furtivo`.
+**Builds:** `Netrunner`, `Ninja / Samurai`, `Tank`, `Velocista com Sandevistan`, `Pistoleiro / Atirador Furtivo`.
 
 As listas oficiais ficam em `src/lib/categorias.ts`; os ícones de cada valor, em `src/components/mural/icones.tsx`. Escreva os valores exatamente assim (acentos inclusos) para reaproveitar o ícone e o filtro certos.
 
 ## Status (star plot)
 
-O botão **Status +** abre o radar do card. Ele tem um eixo por habilidade, na ordem dos filtros: Corpo, Reflexos, Habilidade Técnica, Inteligência e Moral / Sangue Frio. Basta registrar esses rótulos em `stats` (o valor pode ficar de 0 a 100) e o radar encontra cada um sozinho, aceitando variações como "Técnica" ou "Cool":
+O botão **Status +** abre o radar do card. Ele tem um eixo por habilidade, na ordem dos filtros: Corpo, Reflexos, Habilidade Técnica, Inteligência e Moral. Basta registrar esses rótulos em `stats` (o valor pode ficar de 0 a 100) e o radar encontra cada um sozinho, aceitando variações como "Técnica" ou "Cool":
 
 ```json
 "stats": [
@@ -101,7 +101,7 @@ O botão **Status +** abre o radar do card. Ele tem um eixo por habilidade, na o
   { "rotulo": "Reflexos", "valor": 58 },
   { "rotulo": "Habilidade Técnica", "valor": 44 },
   { "rotulo": "Inteligência", "valor": 61 },
-  { "rotulo": "Moral / Sangue Frio", "valor": 92 }
+  { "rotulo": "Moral", "valor": 92 }
 ]
 ```
 

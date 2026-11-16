@@ -20,6 +20,7 @@
   --color-red-hot: #ff2f27;
   --color-cyan: #08dae9;
   --color-yellow: #fcee0a;
+  --color-green: #3ee08a;
 
   /* tipografia */
   --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
