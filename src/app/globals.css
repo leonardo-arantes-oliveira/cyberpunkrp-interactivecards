@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+@theme {
+  /* base */
+  --color-bg: #060d17;
+  --color-bg-deep: #030812;
+  --color-surface-1: #0a121c;
+  --color-surface-2: #111a26;
+  --color-surface-3: #18222f;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+  --color-text: #f4f7fb;
+  --color-muted: #9aa6b5;
+  --color-dim: #7c8797;
+  --color-ink: #0a0a00;
+
+  /* acentos */
+  --color-red: #ff645b;
+  --color-red-deep: #e04b43;
+  --color-red-hot: #ff2f27;
+  --color-cyan: #08dae9;
+  --color-yellow: #fcee0a;
+
+  /* tipografia */
+  --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* efeitos */
+  --shadow-glow-red: 0 0 28px rgba(255, 100, 91, 0.45);
+  --shadow-glow-cyan: 0 0 28px rgba(8, 218, 233, 0.4);
+  --ease-cyber: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-surface-3) var(--color-bg);
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-bg);
+    background-image:
+      linear-gradient(rgba(255, 100, 91, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 100, 91, 0.022) 1px, transparent 1px);
+    background-size: 44px 44px;
+    background-attachment: fixed;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* scanlines discretas */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 89;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.16) 0 1px,
+      transparent 1px 3px
+    );
+    opacity: 0.35;
+  }
+
+  /* grão (pattern do projeto) */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    background-image: url("../media/patterns/noisebg-white.webp");
+    background-size: 320px 320px;
+    opacity: 0.055;
+    mix-blend-mode: soft-light;
+  }
+
+  ::selection {
+    background: var(--color-red);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .notch {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 14px) 0,
+      100% 14px,
+      100% 100%,
+      14px 100%,
+      0 calc(100% - 14px)
+    );
+  }
+
+  .notch-sm {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 13px) 0,
+      100% 13px,
+      100% 100%,
+      13px 100%,
+      0 calc(100% - 13px)
+    );
+  }
+
+  .notch-lg {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 24px) 0,
+      100% 24px,
+      100% 100%,
+      24px 100%,
+      0 calc(100% - 24px)
+    );
+  }
+
+  .notch-lg-in {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 23px) 0,
+      100% 23px,
+      100% 100%,
+      23px 100%,
+      0 calc(100% - 23px)
+    );
+  }
+
+  .stripes {
+    background-image: repeating-linear-gradient(
+      115deg,
+      currentColor 0 3px,
+      transparent 3px 8px
+    );
+  }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 28px;
+    border: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transform: skewX(-6deg);
+    transition:
+      background-color 0.18s ease,
+      box-shadow 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .btn > span {
+    transform: skewX(6deg);
+  }
+
+  .btn--primary {
+    background: var(--color-red);
+    color: var(--color-ink);
+  }
+
+  .btn--primary:hover {
+    background: var(--color-red-deep);
+    box-shadow: var(--shadow-glow-red);
+    transform: skewX(-6deg) translateX(2px);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--color-red);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-red) 55%, transparent);
+  }
+
+  .btn--outline:hover {
+    color: var(--color-text);
+    box-shadow: inset 0 0 0 1px var(--color-red);
+    background: color-mix(in srgb, var(--color-red) 10%, transparent);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--color-muted);
+    box-shadow: inset 0 0 0 1px var(--color-line);
+  }
+
+  .btn--ghost:hover {
+    color: var(--color-text);
+    box-shadow: inset 0 0 0 1px var(--color-line-strong);
+  }
+
+  .btn--striped {
+    padding-left: 34px;
+  }
+
+  .btn--striped::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    bottom: 9px;
+    left: 10px;
+    width: 12px;
+    background-image: repeating-linear-gradient(
+      110deg,
+      var(--color-ink) 0 3px,
+      transparent 3px 7px
+    );
+  }
+
+  .btn--sm {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    height: 34px;
+    padding: 0 14px;
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transform: skewX(-6deg);
+    transition:
+      border-color 0.18s ease,
+      color 0.18s ease,
+      background-color 0.18s ease;
+  }
+
+  .chip > span {
+    transform: skewX(6deg);
+  }
+
+  .chip:hover {
+    border-color: color-mix(in srgb, var(--color-red) 60%, transparent);
+    color: var(--color-text);
+  }
+
+  .chip[data-on="true"] {
+    background: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

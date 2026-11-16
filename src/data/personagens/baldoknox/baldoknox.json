@@ -1,0 +1,119 @@
+{
+  "id": "0042",
+  "nome": "Baldwin Knox",
+  "alias": "ex-Armitage",
+  "origem": "Marginal",
+  "habilidades": ["Corpo", "Moral / Sangue Frio"],
+  "builds": ["Tank / Solo Brutal"],
+  "matiz": 0,
+  "resumo": "Mercenário fanfarrão, de lábia afiada e confiança absurda. Só não negocia a própria consciência.",
+  "stats": [
+    { "rotulo": "Corpo", "valor": 82 },
+    { "rotulo": "Reflexos", "valor": 58 },
+    { "rotulo": "Habilidade Técnica", "valor": 44 },
+    { "rotulo": "Inteligência", "valor": 61 },
+    { "rotulo": "Moral / Sangue Frio", "valor": 92 }
+  ],
+  "meta": [
+    {
+      "rotulo": "Ocupação",
+      "valor": "Mercenário"
+    },
+    {
+      "rotulo": "Base",
+      "valor": "Night City"
+    },
+    {
+      "rotulo": "Reputação",
+      "valor": "Fanfarrão"
+    },
+    {
+      "rotulo": "Status",
+      "valor": "Ativo"
+    }
+  ],
+  "imagens": [
+    "retrato.jpg"
+  ],
+  "capitulos": [
+    {
+      "titulo": "Armitage",
+      "paragrafos": [
+        "Baldo Armitage nasceu numa família de boa reputação em Night City. Seu pai fez carreira na NCPD e era tido como policial disciplinado, de operações bem-sucedidas. Baldo cresceu o admirando: para ele, a polícia protegia inocentes e quem vivia à margem da lei era parte do problema.",
+        "Uma figura quase nunca era lembrada com carinho: o tio, irmão do pai, ligado a atividades criminosas e a grupos independentes das Badlands, entre eles os Rattlers, uma pequena comunidade nômade que confiava nele. Os irmãos romperam anos antes. Baldo mal o conheceu e, pelo que o pai contava, não tinha dúvida sobre quem estava certo."
+      ]
+    },
+    {
+      "titulo": "Massacre",
+      "paragrafos": [
+        "Durante o planejamento de uma operação policial, seu pai recebeu uma proposta clandestina da Kang Tao: uma lista de nomes a eliminar e uma quantia generosa. Ele aceitou. O alvo era um grupo ligado aos Rattlers. Alguns estavam na lista, outros morreram só por estarem no mesmo acampamento.",
+        "Os nômades perceberam que algo estava errado e se recusaram a entregar os companheiros. A operação virou massacre: veículos destruídos, vários mortos, entre eles o tio de Baldo, que antes ajudou parte do grupo a fugir. O pai foi ferido, mas o plano premium da Trauma Team o resgatou. Para a imprensa, foi uma ação bem-sucedida contra criminosos perigosos."
+      ]
+    },
+    {
+      "titulo": "A verdade",
+      "paragrafos": [
+        "Algum tempo depois, usando o computador do pai por curiosidade, Baldo encontrou arquivos, mensagens e registros financeiros: pagamentos, comunicações com a Kang Tao e os relatórios da operação. O massacre não fora acidente. Fora planejado, e o tio estava entre as vítimas.",
+        "O homem que lhe ensinara sobre justiça vendera a própria autoridade. E o criminoso que ele desprezava morrera protegendo quem considerava família. Baldo entendeu que nunca conhecera de verdade nenhum dos dois."
+      ]
+    },
+    {
+      "titulo": "Baldwin Knox",
+      "paragrafos": [
+        "Baldo não confrontou o pai: ele tinha influência, conexões corporativas e recursos para virar a situação. Desapareceu da vida familiar, deixou a casa e rejeitou o sobrenome Armitage.",
+        "Passou a se apresentar como Baldwin Knox, mais que um nome, uma identidade que não fosse herdada. Sem a proteção da família, começou a trabalhar como mercenário."
+      ]
+    },
+    {
+      "titulo": "Mercenário",
+      "paragrafos": [
+        "Esperto, persuasivo e bom em improvisar. Não é o mais forte nem o mais habilidoso de Night City, mas compensa com criatividade, lábia e uma confiança quase absurda em si mesmo. É fanfarrão, provocador e convencido: conta vantagem, exagera histórias e age como se estivesse no controle até quando tudo dá errado.",
+        "Gosta de dinheiro, reconhecimento e de levar vantagem. Mas não negocia a consciência: tem aversão profunda à corrupção e a quem usa autoridade para prejudicar indefesos. Não acha que policial seja bom por ser policial, nem que todo criminoso seja desprezível."
+      ]
+    },
+    {
+      "titulo": "Objetivo",
+      "paragrafos": [
+        "Baldwin nunca largou o passado. Quer provas para expor o envolvimento do pai no massacre dos Rattlers, revelar a participação da Kang Tao e garantir que as vítimas não sejam lembradas só como criminosos mortos numa operação policial. Quer também descobrir o que houve com os sobreviventes e honrar o sacrifício do tio.",
+        "O pai continua vivo, respeitado por quem desconhece a verdade. Enquanto for assim, Baldwin não terá paz."
+      ]
+    },
+    {
+      "titulo": "Perfil",
+      "paragrafos": [
+        "Nota ao mestre: ficam em aberto o número de sobreviventes, a situação atual dos Rattlers, o destino dos documentos e o quanto a Kang Tao sabe da descoberta."
+      ],
+      "linhas": [
+        {
+          "rotulo": "Humor",
+          "valor": "Brincalhão, sarcástico e provocador."
+        },
+        {
+          "rotulo": "Inteligência",
+          "valor": "Observador, manipulador e improvisador."
+        },
+        {
+          "rotulo": "Ego",
+          "valor": "Extremamente convencido de suas capacidades."
+        },
+        {
+          "rotulo": "Ambição",
+          "valor": "Dinheiro, fama e reconhecimento."
+        },
+        {
+          "rotulo": "Moralidade",
+          "valor": "Não tolera abuso de autoridade e traição."
+        },
+        {
+          "rotulo": "Família",
+          "valor": "Valoriza profundamente quem considera família."
+        },
+        {
+          "rotulo": "Vingança",
+          "valor": "Quer responsabilizar o pai, mas não sabe até onde está disposto a ir."
+        }
+      ],
+      "citacao": "“Meu pai me ensinou a respeitar a lei. Meu tio me ensinou que ela nem sempre merece respeito. Acho que, no fim das contas, os dois tinham razão.”"
+    }
+  ]
+}

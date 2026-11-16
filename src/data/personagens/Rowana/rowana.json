@@ -1,0 +1,24 @@
+{
+  "id": "0000",
+  "nome": "Rowana",
+  "alias": "rascunho",
+  "origem": "Nômade",
+  "habilidades": [],
+  "builds": [],
+  "matiz": 0,
+  "resumo": "Ficha em rascunho. As imagens já estão carregadas desta pasta; falta preencher o JSON com origem, habilidades, builds e história.",
+  "stats": [],
+  "meta": [
+    { "rotulo": "Status", "valor": "Rascunho" },
+    { "rotulo": "Arquivo", "valor": "rowana.json" }
+  ],
+  "imagens": ["rowana.webp", "rowanaperfil.webp"],
+  "capitulos": [
+    {
+      "titulo": "Em construção",
+      "paragrafos": [
+        "A história da Rowana ainda não foi escrita. Edite src/data/personagens/Rowana/rowana.json para preencher os capítulos, atributos e metadados — a ficha aparece atualizada no mural ao recarregar."
+      ]
+    }
+  ]
+}

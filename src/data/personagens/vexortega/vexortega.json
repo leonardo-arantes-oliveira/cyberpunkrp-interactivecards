@@ -1,0 +1,46 @@
+{
+  "id": "0107",
+  "nome": "Vex Ortega",
+  "alias": "“Nine”",
+  "origem": "Nômade",
+  "habilidades": ["Inteligência", "Habilidade Técnica"],
+  "builds": ["Netrunner"],
+  "matiz": 140,
+  "resumo": "Exemplo: invade qualquer rede antes do café esfriar.",
+  "stats": [
+    { "rotulo": "Corpo", "valor": 35 },
+    { "rotulo": "Reflexos", "valor": 68 },
+    { "rotulo": "Habilidade Técnica", "valor": 74 },
+    { "rotulo": "Inteligência", "valor": 95 },
+    { "rotulo": "Moral / Sangue Frio", "valor": 57 }
+  ],
+  "meta": [
+    {
+      "rotulo": "Ocupação",
+      "valor": "Hacker"
+    },
+    {
+      "rotulo": "Base",
+      "valor": "Badlands"
+    },
+    {
+      "rotulo": "Reputação",
+      "valor": "Fantasma"
+    },
+    {
+      "rotulo": "Status",
+      "valor": "Ativo"
+    }
+  ],
+  "imagens": [
+    "retrato.jpg"
+  ],
+  "capitulos": [
+    {
+      "titulo": "Exemplo",
+      "paragrafos": [
+        "Dados de exemplo para testar o mural. Troque pelo JSON do personagem real."
+      ]
+    }
+  ]
+}
