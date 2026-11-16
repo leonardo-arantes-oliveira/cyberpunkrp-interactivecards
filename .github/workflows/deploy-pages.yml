@@ -34,11 +34,10 @@ jobs:
       - name: Configurar Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          # Liga o Pages com "Source: GitHub Actions" no primeiro run.
-          # Se o token não tiver permissão, dá erro: aí é só ativar em
-          # Settings -> Pages -> Source -> GitHub Actions e rodar de novo.
-          enablement: true
+        # Sem `enablement: true` de propósito: essa opção tenta criar o site do
+        # Pages pela API e exige permissão de admin, o que derruba o run.
+        # O Pages precisa ser ativado uma vez em Settings -> Pages ->
+        # Build and deployment -> Source -> GitHub Actions.
 
       - name: Instalar dependências
         run: npm ci
