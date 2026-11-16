@@ -15,8 +15,12 @@ Regras rápidas:
 - O JSON pode ter qualquer nome; se houver mais de um, vence o que tem o mesmo nome da pasta.
 - Imagens `.webp`, `.jpg`, `.jpeg`, `.png` e `.avif` da pasta entram na galeria.
 - A ordem das imagens vem do campo `imagens`; sem ele, a ordem é alfabética.
+- O campo aceita lista (`imagens`) ou singular (`imagem`, `foto`, `retrato`), com ou sem
+  extensão e em qualquer caixa: `"retrato"`, `"Retrato.JPG"` e `"retrato.jpg"` dão no mesmo.
+- As fotos são copiadas para `public/fichas/<slug>/`. Com `npm run dev`, a cópia se refaz
+  sozinha a cada imagem adicionada, trocada ou removida; fora disso, use `npm run sincronizar`.
 - Pastas começando com `_` ou `.` são ignoradas.
-- Recarregue a página (`npm run dev`) depois de salvar o JSON.
+- Recarregue a página depois de salvar o JSON.
 
 ## Formato do JSON
 

@@ -1,0 +1,64 @@
+{
+  "id": "0000",
+  "nome": "Nome Completo",
+  "alias": "apelido",
+  "origem": "Marginal",
+  "habilidades": ["Corpo", "Moral"],
+  "builds": ["Tank"],
+  "matiz": 0,
+  "resumo": "Uma frase de 60 a 120 caracteres: o que ele é e o que o torna interessante.",
+  "stats": [
+    { "rotulo": "Corpo", "valor": 60 },
+    { "rotulo": "Reflexos", "valor": 55 },
+    { "rotulo": "Habilidade Técnica", "valor": 45 },
+    { "rotulo": "Inteligência", "valor": 65 },
+    { "rotulo": "Moral", "valor": 40 }
+  ],
+  "meta": [
+    { "rotulo": "Ocupação", "valor": "Mercenário" },
+    { "rotulo": "Base", "valor": "Watson" },
+    { "rotulo": "Reputação", "valor": "Confiável" },
+    { "rotulo": "Status", "valor": "Ativo" }
+  ],
+  "imagens": ["01-retrato.jpg", "02-close.jpg", "03-corpo-inteiro.jpg"],
+  "capitulos": [
+    {
+      "titulo": "Origem",
+      "paragrafos": [
+        "Quem ele era antes: família, lugar onde cresceu, o que acreditava. Duas a quatro frases.",
+        "Um segundo parágrafo curto, se houver algo que prepara a virada."
+      ]
+    },
+    {
+      "titulo": "Virada",
+      "paragrafos": [
+        "O evento que quebra a vida dele. Nomes próprios, lugares e facções explícitos. Duas a quatro frases."
+      ]
+    },
+    {
+      "titulo": "Hoje",
+      "paragrafos": [
+        "Como ele vive, trabalha e age agora. Presente do indicativo. Duas a quatro frases."
+      ]
+    },
+    {
+      "titulo": "Objetivo",
+      "paragrafos": [
+        "O que ele persegue e o que o impede de conseguir. Presente do indicativo. Duas a quatro frases."
+      ]
+    },
+    {
+      "titulo": "Perfil",
+      "linhas": [
+        { "rotulo": "Humor", "valor": "Como se comporta no dia a dia." },
+        { "rotulo": "Inteligência", "valor": "Como pensa e resolve problema." },
+        { "rotulo": "Ego", "valor": "O quanto se acha e como demonstra." },
+        { "rotulo": "Ambição", "valor": "O que quer ganhar com o RP." },
+        { "rotulo": "Moralidade", "valor": "O que tolera e o que não tolera." },
+        { "rotulo": "Família", "valor": "Relação com quem é próximo." },
+        { "rotulo": "Medo", "valor": "Eixo livre, próprio deste personagem." }
+      ],
+      "citacao": "“Uma fala do personagem, de 15 a 40 palavras, que só ele diria.”"
+    }
+  ]
+}

@@ -957,8 +957,9 @@
   inset: 0;
   z-index: 60;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
-  padding: 3vw;
+  padding: clamp(10px, 3vw, 40px);
   background: rgba(3, 8, 18, 0.86);
   backdrop-filter: blur(6px);
 }
@@ -967,6 +968,8 @@
   display: flex;
   flex-direction: column;
   width: min(860px, 100%);
+  max-width: 100%;
+  min-width: 0;
   max-height: 88vh;
   border: 1px solid var(--color-red);
   background: var(--m-surface);
@@ -975,9 +978,14 @@
 
 .m-ph {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   padding: 22px 26px 10px;
+}
+
+.m-ph > .m-b2 {
+  flex: none;
 }
 
 .m-mn {
@@ -998,13 +1006,17 @@
 
 .m-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 6px 26px 10px;
-  overflow-x: auto;
 }
 
 .m-tab {
-  flex: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  flex: 0 1 auto;
+  max-width: 100%;
   padding: 6px 12px;
   border: 1px solid var(--m-line);
   background: none;
@@ -1012,13 +1024,26 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-align: left;
   text-transform: uppercase;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
   cursor: pointer;
   transition:
     background-color 0.16s ease,
     border-color 0.16s ease,
     color 0.16s ease;
+}
+
+.m-tab-num {
+  color: var(--color-red);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.m-tab-sep {
+  color: var(--color-dim);
+  font-weight: 400;
 }
 
 .m-tab:hover {
@@ -1032,17 +1057,30 @@
   color: var(--color-ink);
 }
 
+.m-tab[aria-selected="true"] .m-tab-num,
+.m-tab[aria-selected="true"] .m-tab-sep {
+  color: var(--color-ink);
+}
+
 .m-mbody {
   flex: 1;
-  min-height: 240px;
+  min-height: 0;
   padding: 12px 26px 18px;
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .m-mbody p {
   max-width: 66ch;
   margin: 0 0 1em;
   line-height: 1.65;
+}
+
+.m-mbody p,
+.m-mbody dd,
+.m-mbody blockquote {
+  overflow-wrap: anywhere;
 }
 
 .m-quote {
@@ -1174,6 +1212,53 @@
 
   .m-title {
     font-size: clamp(28px, 9.6vw, 44px);
+  }
+}
+
+/* celular: o painel ocupa a tela, cabeçalho e rodapé fixos e o texto rola */
+@media (max-width: 640px) {
+  .m-md {
+    padding: 8px;
+    align-items: stretch;
+  }
+
+  .m-pan {
+    width: 100%;
+    max-height: calc(100dvh - 16px);
+  }
+
+  .m-ph {
+    gap: 10px;
+    padding: 14px 14px 6px;
+  }
+
+  .m-mn {
+    font-size: clamp(19px, 7vw, 26px);
+  }
+
+  .m-tabs {
+    gap: 5px;
+    padding: 4px 14px 8px;
+  }
+
+  .m-tab {
+    padding: 6px 9px;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+  }
+
+  .m-mbody {
+    padding: 10px 14px 14px;
+    font-size: 14.5px;
+  }
+
+  .m-mbody p {
+    line-height: 1.6;
+  }
+
+  .m-mfoot {
+    gap: 8px;
+    padding: 10px 14px max(12px, env(safe-area-inset-bottom));
   }
 }
 

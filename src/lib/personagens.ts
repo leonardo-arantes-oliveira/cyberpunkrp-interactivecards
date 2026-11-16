@@ -114,9 +114,26 @@ async function carregarPasta(slug: string): Promise<Personagem | null> {
     .filter((f) => EXTENSOES_IMAGEM.has(path.extname(f).toLowerCase()))
     .sort(compararNatural);
 
-  const pedidas = Array.isArray(bruto.imagens)
-    ? (bruto.imagens as unknown[]).map((i) => texto(i)).filter((i) => disponiveis.includes(i))
-    : [];
+  // "imagens" (lista), "imagem", "foto" e "retrato" são aceitos; o nome pode vir
+  // com ou sem extensão, com qualquer caixa e até como caminho relativo.
+  const nomesImagens = lista(bruto.imagens ?? bruto.imagem ?? bruto.foto ?? bruto.retrato);
+  const achadas = nomesImagens.map((nome) => {
+    const base = nome.replace(/^.*[\\/]/, "").toLowerCase();
+    const semExtensao = base.replace(/\.[^.]+$/, "");
+    return (
+      disponiveis.find((arquivo) => arquivo.toLowerCase() === base) ??
+      disponiveis.find((arquivo) => arquivo.toLowerCase() === semExtensao) ??
+      disponiveis.find((arquivo) => path.parse(arquivo).name.toLowerCase() === semExtensao)
+    );
+  });
+
+  achadas.forEach((arquivo, i) => {
+    if (!arquivo) {
+      console.warn(`[mural] ${slug}: imagem "${nomesImagens[i]}" não existe na pasta; ignorada.`);
+    }
+  });
+
+  const pedidas = [...new Set(achadas.filter((arquivo): arquivo is string => Boolean(arquivo)))];
 
   const imagens = (pedidas.length ? pedidas : disponiveis).map((arquivo) => urlImagem(slug, arquivo));
 

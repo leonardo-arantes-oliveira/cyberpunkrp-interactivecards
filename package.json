@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "predev": "node scripts/sincronizar-imagens.mjs",
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
     "prebuild": "node scripts/sincronizar-imagens.mjs",
     "build": "next build",
     "preview": "npx --yes serve out",

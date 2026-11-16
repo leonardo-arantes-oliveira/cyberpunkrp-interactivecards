@@ -214,7 +214,11 @@ export function HistoriaModal({ personagem, onFechar }: Props) {
                 tabIndex={i === aba ? 0 : -1}
                 onClick={() => setAba(i)}
               >
-                {cap.titulo}
+                <span className="m-tab-num">{i + 1}</span>
+                <span className="m-tab-sep" aria-hidden="true">
+                  |
+                </span>
+                <span>{cap.titulo}</span>
               </button>
             ))}
           </div>
