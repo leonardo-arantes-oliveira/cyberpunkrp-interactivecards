@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { caminhoPublico } from "./caminhos";
 import type { Capitulo, LinhaMeta, Personagem, Stat } from "./tipos";
 
 /**
@@ -30,8 +31,12 @@ const lista = (valor: unknown) => {
 const compararNatural = (a: string, b: string) =>
   a.localeCompare(b, "pt-BR", { numeric: true, sensitivity: "base" });
 
+/**
+ * As imagens são copiadas para public/fichas/<slug>/ antes do build
+ * (scripts/sincronizar-imagens.mjs), porque o export estático não tem servidor.
+ */
 export function urlImagem(slug: string, arquivo: string) {
-  return `/api/personagens/${encodeURIComponent(slug)}/${encodeURIComponent(arquivo)}`;
+  return caminhoPublico(`/fichas/${encodeURIComponent(slug)}/${encodeURIComponent(arquivo)}`);
 }
 
 function normalizarStats(bruto: unknown): Stat[] {

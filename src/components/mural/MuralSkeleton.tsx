@@ -1,11 +1,17 @@
 import Image from "next/image";
+import { caminhoPublico } from "@/lib/caminhos";
 
 export function MuralSkeleton() {
   return (
     <div className="mural" aria-busy="true">
       <header className="m-top">
         <span className="m-logo">
-          <Image src="/logo.png" alt="Afterlife Roleplay" width={160} height={53} />
+          <Image
+            src={caminhoPublico("/logo.png")}
+            alt="Afterlife Roleplay"
+            width={160}
+            height={53}
+          />
         </span>
         <p className="m-eyebrow">{"/// afterlife//rp · sincronizando"}</p>
         <h1 className="m-title">

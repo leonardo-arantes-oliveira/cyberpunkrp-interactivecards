@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mural de fichas · Afterlife Roleplay
 
-## Getting Started
+Site Next.js com as fichas interativas dos personagens do servidor Afterlife Roleplay
+(Cyberpunk 2077). O mural lê as fichas de `src/data/personagens/<slug>/` — um JSON e as
+imagens de cada personagem — e publica tudo como site estático no GitHub Pages.
 
-First, run the development server:
+- Produção: <https://leonardo-arantes-oliveira.github.io/cyberpunkrp-interactivecards/>
+- Repositório: <https://github.com/leonardo-arantes-oliveira/cyberpunkrp-interactivecards>
+
+## Rodando local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra <http://localhost:3000>. Para adicionar um personagem, crie a pasta em
+`src/data/personagens/` com o JSON e as imagens (veja `src/data/personagens/README.md`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build estático
 
-## Learn More
+```bash
+npm run build   # gera a pasta out/
+npm run preview # serve o out/ localmente para conferir
+```
 
-To learn more about Next.js, take a look at the following resources:
+Antes de cada `dev`/`build` o script `scripts/sincronizar-imagens.mjs` copia as imagens das
+fichas para `public/fichas/<slug>/`. Isso é necessário porque o export estático não tem
+servidor para ler arquivos do disco (a pasta `public/fichas` é gerada e está no `.gitignore`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy automático no GitHub Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) roda a
+cada push em `master` (ou `main`) e também pode ser disparado na mão em **Actions → Deploy no
+GitHub Pages → Run workflow**:
 
-## Deploy on Vercel
+1. instala as dependências com `npm ci`;
+2. roda `npm run build` com `NEXT_PUBLIC_BASE_PATH=/cyberpunkrp-interactivecards`, então todos
+   os links e imagens já saem com o prefixo do projeto;
+3. publica a pasta `out/` no GitHub Pages via OIDC (`actions/deploy-pages`), sem chave nem
+   token extra.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O `public/.nojekyll` impede o Jekyll de ignorar a pasta `_next`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Configuração única no GitHub
+
+Em **Settings → Pages → Build and deployment → Source**, escolha **GitHub Actions**. O
+workflow tenta fazer isso sozinho (`enablement: true`), mas essa opção exige permissão de
+admin no repositório; se o primeiro run falhar nesse passo, ative na mão e rode de novo.
+
+O repositório precisa ser público (no plano free o Pages só funciona em repositórios
+públicos).
+
+## Notas técnicas
+
+- `output: "export"` + `images.unoptimized` — o GitHub Pages só serve arquivos estáticos.
+- `cacheComponents` (PPR) fica desligado: o PPR exige servidor Node e o build falha com
+  "Invariant: PPR cannot be enabled in export mode".
+- `next/image` não aplica o `basePath` sozinho, por isso `src/lib/caminhos.ts` monta as URLs
+  de arquivos de `public/`.

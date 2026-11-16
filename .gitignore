@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# imagens das fichas copiadas para public/ antes do build (geradas)
+/public/fichas/
+
 # production
 /build
 

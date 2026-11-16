@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { semMovimento } from "@/lib/animacao";
 import { BUILDS, HABILIDADES, ORIGENS, comDados } from "@/lib/categorias";
+import { caminhoPublico } from "@/lib/caminhos";
 import type { Personagem } from "@/lib/tipos";
 import { Filtros, type Ordem } from "./Filtros";
 import { HistoriaModal } from "./HistoriaModal";
@@ -142,7 +143,13 @@ export function Mural({ personagens }: { personagens: Personagem[] }) {
     <div className="mural">
       <header className="m-top">
         <Link href="/" className="m-logo" aria-label="Afterlife Roleplay — início">
-          <Image src="/logo.png" alt="Afterlife Roleplay" width={160} height={53} priority />
+          <Image
+            src={caminhoPublico("/logo.png")}
+            alt="Afterlife Roleplay"
+            width={160}
+            height={53}
+            priority
+          />
         </Link>
 
         <p className="m-eyebrow">{"/// afterlife//rp · banco de dados"}</p>
