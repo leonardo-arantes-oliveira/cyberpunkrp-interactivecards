@@ -1,0 +1,140 @@
+
+{
+"id": "0738",
+"nome": "Viktor Dracul",
+"alias": "",
+"origem": "Corp",
+"habilidades": [
+    "Habilidade Técnica",
+    "Corpo"
+],
+"builds": [
+    "Tank"
+],
+"matiz": 0,
+"resumo": "Ex-herdeiro da SovOil que abandonou a carne e encontrou na máquina sua única forma de evolução.",
+"stats": [
+    {
+    "rotulo": "Corpo",
+    "valor": 70
+    },
+    {
+    "rotulo": "Reflexos",
+    "valor": 45
+    },
+    {
+    "rotulo": "Habilidade Técnica",
+    "valor": 75
+    },
+    {
+    "rotulo": "Inteligência",
+    "valor": 65
+    },
+    {
+    "rotulo": "Moral",
+    "valor": 25
+    }
+],
+"meta": [
+    {
+    "rotulo": "Ocupação",
+    "valor": "Integrante da Maelstrom"
+    },
+    {
+    "rotulo": "Base",
+    "valor": "Watson"
+    },
+    {
+    "rotulo": "Reputação",
+    "valor": "Fanático"
+    },
+    {
+    "rotulo": "Status",
+    "valor": "Ativo"
+    }
+],
+"imagens": [
+    "01-retrato.jpg",
+    "02-close.jpg",
+    "03-corpo-inteiro.jpg"
+],
+"capitulos": [
+    {
+    "titulo": "Dracul",
+    "paragrafos": [
+        "Viktor nasceu na linhagem Dracul, uma família aristocrática que ocupava posições de poder na SovOil, a megacorporação russa responsável por monopolizar grande parte da energia europeia. Criado entre arranha-céus blindados de Moscou, seguranças corporativos e privilégios, aprendeu desde cedo que os Dracul estavam destinados a governar.",
+        "Seu pai tentou executar um golpe interno na diretoria da SovOil. A resposta da corporação foi um expurgo: esquadrões da morte invadiram a mansão da família e eliminaram seus integrantes. Aos dez anos, Viktor escapou com sua mãe, Katerina, graças à ajuda de um contrabandista."
+    ]
+    },
+    {
+    "titulo": "Exílio",
+    "paragrafos": [
+        "Moscou ficou para trás. Viktor e Katerina encontraram refúgio em Night City, nos corredores degradados de Kabuki, em Watson. A fortuna Dracul desapareceu rapidamente, e os antigos privilégios não tinham qualquer valor naquele ambiente.",
+        "Sem recursos, contatos ou proteção corporativa, Katerina passou a trabalhar como Joytoy nas vielas de Jig-Jig Street e nos motéis baratos de Northside. Viktor cresceu escondido em quartos baratos, testemunhando as humilhações e a degradação que sua mãe enfrentava para mantê-lo vivo."
+    ]
+    },
+    {
+    "titulo": "Katerina",
+    "paragrafos": [
+        "Quando Viktor tinha dezesseis anos, um cliente de Katerina, um Solo equipado com cromo de combate ilegal, entrou em um episódio de violência e a espancou até a morte. Viktor tentou intervir, mas foi arremessado contra uma parede pelo braço cibernético do agressor.",
+        "A NCPD foi chamada, mas o histórico do mercenário e a condição de Katerina como Joytoy sem licença fizeram com que o caso fosse arquivado no mesmo dia. O assassino saiu impune. Diante do corpo da mãe, Viktor deixou de enxergar a carne como algo digno de proteção."
+    ]
+    },
+    {
+    "titulo": "Cromo",
+    "paragrafos": [
+        "Depois da morte de Katerina, Viktor passou anos trabalhando como catador em Watson, roubando peças de corpos abandonados nos becos para acumular edinhos. Sua intenção não era apenas sobreviver, mas abandonar tudo aquilo que considerava responsável pela queda de sua família.",
+        "Seu primeiro grande implante foi instalado em um porão clandestino. Viktor substituiu as próprias cordas vocais orgânicas por um sintetizador industrial, destruindo deliberadamente uma das últimas características que o ligavam à sua antiga humanidade.",
+        "A automutilação e sua devoção à máquina chamaram a atenção dos batedores da Maelstrom em Northside. A gangue reconheceu nele alguém que não apenas aceitava o cromo, mas parecia enxergar nele uma forma de existência superior."
+    ]
+    },
+    {
+    "titulo": "Maelstrom",
+    "paragrafos": [
+        "Anos depois, Viktor localizou o mercenário responsável pela morte de Katerina. O homem ainda possuía um arsenal de implantes de combate, mas Viktor já havia abandonado boa parte de sua antiga identidade humana.",
+        "Após capturá-lo, desmontou seu corpo peça por peça enquanto ainda estava vivo, apropriando-se de seus implantes. Como demonstração de devoção à Maelstrom, ofereceu as óticas ensanguentadas do assassino a Royce."
+    ]
+    },
+    {
+    "titulo": "Hoje",
+    "paragrafos": [
+        "Viktor circula pelo submundo de Night City com uma visão profundamente distorcida da humanidade. Seu corpo é resultado de uma transformação deliberada, e sua voz sintética elimina qualquer vestígio da fragilidade que um dia associou à própria existência.",
+        "Sua aproximação com a Maelstrom representa uma nova etapa de sua transformação. O cromo deixou de ser apenas uma ferramenta de sobrevivência e passou a representar sua própria filosofia."
+    ]
+    },
+    {
+    "titulo": "Perfil",
+    "linhas": [
+        {
+        "rotulo": "Humor",
+        "valor": "Frio e perturbador, raramente demonstra emoções humanas."
+        },
+        {
+        "rotulo": "Inteligência",
+        "valor": "Observador e pragmático, valoriza conhecimento técnico e adaptação."
+        },
+        {
+        "rotulo": "Ego",
+        "valor": "Despreza a fragilidade orgânica e acredita ter superado a humanidade."
+        },
+        {
+        "rotulo": "Ambição",
+        "valor": "Superar os limites biológicos por meio da substituição da carne."
+        },
+        {
+        "rotulo": "Moralidade",
+        "valor": "Não reconhece a moralidade convencional como limite para suas ações."
+        },
+        {
+        "rotulo": "Família",
+        "valor": "Sua linhagem representa tanto seu antigo orgulho quanto sua queda."
+        },
+        {
+        "rotulo": "Cromo",
+        "valor": "Enxerga a substituição da carne como evolução, não como sacrifício."
+        }
+    ],
+    "citacao": "“A carne apodrece, sente medo e implora para continuar existindo. Eu já ouvi o suficiente dessas súplicas. A máquina não pede misericórdia, não sente vergonha e não precisa de uma segunda chance.”"
+    }
+]
+}
